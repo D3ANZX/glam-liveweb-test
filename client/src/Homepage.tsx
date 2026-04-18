@@ -1,5 +1,5 @@
 import mj from './assets/profilePics/mj.jpg'
-import rwy from './assets/bgm/ROCK WITH YOU (SWG Extended Mix) - MICHAEL JACKSON (Off The Wall).mp3'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 function Homepage() {
   return (
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
@@ -35,7 +35,7 @@ function Homepage() {
 
    
       </div>
-      
+
    );
 }
 
