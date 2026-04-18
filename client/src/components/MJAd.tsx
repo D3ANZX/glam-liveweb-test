@@ -10,6 +10,8 @@ function MJAd(){
                 <div className="">
                     <h1 className="text-white text-2xl font-extrabold">YOUR JOURNEY STARTS HERE</h1>
                     <img src={mj} alt="" className='mt-5' />
+                    <p className='text-white font-bold text-xl'> Michael Jackson</p>
+                    <p className='text-white'>King of Pop, lorem ipsum dolor lorem ipsum dolor</p>
                 </div>
             </div>
         </div>

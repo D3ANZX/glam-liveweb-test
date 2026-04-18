@@ -2,7 +2,7 @@ import './cstyles.css'
 import coinIcon from '../assets/coin.png'
 function NavBar(){
     return(
-        <div className="w-screen h-20 flex justify-center items-center fixed top-0 bg-white drop-shadow-xl">
+        <div className="w-screen h-20 flex justify-center items-center fixed top-0 bg-white drop-shadow-xl z-10">
             <div className="w-100 flex items-center justify-around ">
                  
                 <div className="flex items-center gap-2">

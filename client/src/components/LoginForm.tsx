@@ -3,7 +3,7 @@ import './cstyles.css'
 function LoginForm(){
     return(
         <div className=" flex justify-center">
-            <div className="mt-10 h-80 w-80 shadow-2xl rounded-2xl p-10 border-l-15 border-b-15 border-2 border-purple-900">
+            <div className="mt-10 h-80 w-80 shadow-2xl shadow-purple-900 rounded-2xl p-10 ">
                 <h1 className='font-extrabold text-2xl mb-5'>User Login</h1>
                 <form action="">
                     

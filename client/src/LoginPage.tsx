@@ -4,10 +4,8 @@ import MJAd from "./components/MJAd";
 import TfItem from "./components/TfItem";
 function LoginPage(){
     return(
-        <div className="mt-20">
+        <div className="mt-20 h-30">
             <LoginForm/>
-            <MJAd/>
-            <TfItem/>
         </div>
         
     );
