@@ -1,9 +1,5 @@
-import { useState } from "react";
-
 function Settings(){
-    const [theme, setTheme] = useState("light");
-    const [isToggled, setToggle] = useState(false);
-    return(  
+    return(
         <div className="mt-30 w-screen flex justify-center max-w-screen ">
             <div className="rounded-2xl w-80 h-120 p-10 shadow-2xl">
                 <h1 className='font-bold text-2xl'>Settings</h1>

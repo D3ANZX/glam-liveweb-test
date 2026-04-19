@@ -1,11 +1,9 @@
 import mj from './assets/profilePics/mj.png'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { useState } from 'react';
+import { Link } from 'react-router-dom'
 import MJAd from './components/MJAd';
 
 function Homepage() {
 
-  const [isTouched, setIsTouched] = useState(false);
   return (
     <div className="">
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">

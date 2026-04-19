@@ -1,6 +1,5 @@
 import './components/cstyles.css'
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-import LoginPage from './LoginPage';
+import { Link } from 'react-router-dom';
 function AccountMenu(){
     return(
         <div className="mt-30 h-100 w-screen flex justify-center">
