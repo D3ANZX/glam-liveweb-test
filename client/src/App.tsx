@@ -12,8 +12,6 @@ function App(){
     <div className='mb-40'>
       <NavBar/>
       <BottomNav/>
-
-
     </div>
     
   );

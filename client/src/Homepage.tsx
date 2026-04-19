@@ -1,6 +1,9 @@
 import mj from './assets/profilePics/mj.jpg'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { useState } from 'react';
 function Homepage() {
+
+  const [isTouched, setIsTouched] = useState(false);
   return (
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
 
@@ -13,7 +16,7 @@ function Homepage() {
         <div className="relative bottom-5 right-6 z-0 flex gap-2">
           <div id='profileContainer'>
               <div className="w-30 h-30 bg-white rounded-full border-4 border-purple-900 shadow-xl flex items-center justify-center">
-              <img src={mj} alt="" className='h-25 w-25 rounded-full' />
+              <img src={mj} alt="" className='h-25 w-25 rounded-full ' />
               </div>
           </div>
           <div className="">
@@ -24,9 +27,12 @@ function Homepage() {
 
 
           <div  id='menu-button-container' className='flex justify-center gap-5'>
-              <button className="bg-yellow-600 text-white w-30 h-10 rounded-lg shadow-black shadow-2xl">TAKE QUIZ</button>
-              <button className="bg-yellow-600 text-white w-30 h-10 rounded-lg shadow-2xl"> TRIVIA</button>
+              <button className="bg-yellow-600 text-white w-30 h-10 rounded-lg shadow-black shadow-2xl hover:bg-yellow-300"><Link to='/quiz'>TAKE QUIZ</Link></button>
+
+
+              <button className="bg-yellow-600 text-white w-30 h-10 rounded-lg shadow-2xl"> <Link to='/trivia'>TRIVIA</Link> </button>
           </div>
+
 
 
             <div className="mt-10 top-13 w-80 h-[3px] bg-gray-300"></div>
