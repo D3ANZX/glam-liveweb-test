@@ -1,10 +1,13 @@
-import mj from './assets/profilePics/mj.jpg'
+import mj from './assets/profilePics/mj.png'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react';
+import MJAd from './components/MJAd';
+
 function Homepage() {
 
   const [isTouched, setIsTouched] = useState(false);
   return (
+    <div className="">
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
 
       <div className=" mt-23 h-139 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
@@ -38,10 +41,9 @@ function Homepage() {
             <div className="mt-10 top-13 w-80 h-[3px] bg-gray-300"></div>
             <div className="mt-10 top-22 w-80 h-[1px] bg-gray-300"></div>
         </div>
-
-   
       </div>
-
+      <MJAd/>
+    </div>
    );
 }
 
