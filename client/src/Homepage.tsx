@@ -2,12 +2,12 @@ import mj from './assets/profilePics/mj.png'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react';
 import MJAd from './components/MJAd';
+import Avatar from './Avatar';
 
 function Homepage() {
 
   const [isTouched, setIsTouched] = useState(false);
-  const [activeTab, setActiveTab] = useState("all");
-
+  const [activeTab, setActiveTab] = useState("Shop");
   return (
     <div className="">
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
@@ -81,8 +81,8 @@ function Homepage() {
     </button>
 
 </div>
-            <div className="mt-4 text-white text-center text-sm">
-              {activeTab === "Shop" && <p>Avatar</p>}
+          <div className="mt-4 text-white text-center text-sm">
+              {activeTab === "Shop" && <Avatar/>}
               {activeTab === "Ranks" && <p> Master, Legend, Epic, Mythic</p>}
               {activeTab === "Statistics" && <p> Up and down </p>}
             </div>
