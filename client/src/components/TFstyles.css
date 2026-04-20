@@ -1,0 +1,71 @@
+.backG {
+  position: relative;
+  background-color: #D08700;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.TextMain {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFE8A3;
+  -webkit-text-stroke: 1px black;
+}
+.card {
+  width: min(100%, 500px);
+  height: 250px;
+  background-color: #59168A;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  padding: 20px;
+  color: white;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.quizButton,
+.quizButtonAlt {
+  width: 175px;
+  height: 100px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 3px solid #C10007;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quizButton {
+  background-color: #D08700;
+  color: white;
+}
+
+.quizButtonAlt {
+  background-color: white;
+  color: #59168A;
+}
+
+/* hover effects */
+.quizButton:hover {
+  background-color: #e39a11;
+}
+
+.quizButtonAlt:hover {
+  background-color: #f2f2f2;
+}
