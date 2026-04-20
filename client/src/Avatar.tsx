@@ -1,17 +1,30 @@
 import { useState } from "react";
 
-import hair1 from "./assets/Hair1.png";
+import hair1 from "./assets/longhair.png";
+import hair2 from "./assets/Curlyhair.png";
+import hair3 from "./assets/cheerleaderhair.png";
+import hair4 from "./assets/ponytail.png";
+import hair5 from "./assets/boyhair1.png";
+import hair6 from "./assets/90shair.png";
+import hair7 from "./assets/blackhead.png";
+import hair8 from "./assets/simpleboyhair.png";
 
-import eyes1 from "./assets/Headwite.png";
-import eyes2 from "./assets/Headwite.png";
 
-import lips1 from "./assets/Headwite.png";
-import lips2 from "./assets/Headwite.png";
+import eyes1 from "./assets/Cateye.png";
+import eyes2 from "./assets/nonchalanteyes.png";
 
-import head1 from "./assets/Headwite.png";
-import head2 from "./assets/Headneutral.png";
-import head3 from "./assets/Headbrown.png";
-import head4 from "./assets/Headblck.png";
+
+import lips1 from "./assets/Lips1.png";
+import lips2 from "./assets/confusedlips.png";
+import lips3 from "./assets/redlips.png";
+import lips4 from "./assets/smilinglips.png";
+;
+
+
+import head1 from "./assets/whitehead.png";
+import head2 from "./assets/neutralhead.png";
+import head3 from "./assets/brownhead.png";
+import head4 from "./assets/blackhead.png";
 
 function Avatar() {
 
@@ -26,15 +39,28 @@ function Avatar() {
 
   const shopItems: any = {
     hair: [
-      { img: hair1, price: 0 }
+      { img: hair1, price: 0 },
+      { img: hair2, price: 0 },
+      { img: hair3, price: 0 },
+      { img: hair4, price: 0 },
+      { img: hair5, price: 0 },
+      { img: hair6, price: 0 },
+      { img: hair7, price: 0 },
+      { img: hair8, price: 0 }
+
     ],
     eyes: [
       { img: eyes1, price: 0 },
       { img: eyes2, price: 30 }
+
     ],
     lips: [
       { img: lips1, price: 0 },
-      { img: lips2, price: 20 }
+      { img: lips2, price: 20 },
+      { img: lips3, price: 30 },
+      { img: lips4, price: 30 }
+
+
     ],
     head: [
       { img: head1, price: 0 },
@@ -48,11 +74,12 @@ function Avatar() {
     <div className="text-white">
 
       {/*AVATAR PREVIEW*/}
-      <div className="relative w-9 h-13 mx-auto mb-3">
-        <img src={avatar.head} className="absolute w-full h-full" />
-        <img src={avatar.eyes} className="absolute w-full h-full" />
-        <img src={avatar.lips} className="absolute w-full h-full" />
-        <img src={avatar.hair} className="absolute w-full h-full" />
+      <div className="relative w-9 h-13 mx-auto mb-3 scale-200">
+        <img src={avatar.head} className="absolute w-full h-full z-0" />
+        <img src={avatar.hair} className="absolute w-full h-full z-1"  />
+        <img src={avatar.eyes} className="absolute w-full h-full z-2"  />
+        <img src={avatar.lips} className="absolute w-full h-full z-3"/>
+        
       </div>
 
       {/*CATEGORY BUTTONS */}

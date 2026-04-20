@@ -12,7 +12,7 @@ function Homepage() {
     <div className="">
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
 
-      <div className=" mt-23 h-139 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
+      <div className=" mt-23 h-190 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
 
         <div id='welcome-header' className="top-0 h-30 w-full bg-red-700 rounded-t-3xl shadow-2xl flex items-center justify-center">
           <h1 className="text-white font-semibold">Welcome Back!</h1>
