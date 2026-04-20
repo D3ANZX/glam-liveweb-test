@@ -10,6 +10,7 @@ import AccountMenu from '../AccountMenu'
 import LoginPage from '../LoginPage'
 import TriviaPage from '../TriviaPage'
 import TrueFalse from '../TrueFalse'
+import RegisterPage from '../RegisterPage'
 function BottomNav(){
     return(
         <BrowserRouter>
