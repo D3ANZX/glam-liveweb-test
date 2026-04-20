@@ -2,12 +2,12 @@ import mj from './assets/profilePics/mj.png'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react';
 import MJAd from './components/MJAd';
-
+import Avatar from './Avatar';
+import banner from './assets/banner.png';
 function Homepage() {
 
   const [isTouched, setIsTouched] = useState(false);
-  const [activeTab, setActiveTab] = useState("all");
-
+  const [activeTab, setActiveTab] = useState("Shop");
   return (
     <div className="">
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
@@ -15,7 +15,7 @@ function Homepage() {
       <div className=" mt-23 h-139 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
 
         <div id='welcome-header' className="top-0 h-30 w-full bg-red-700 rounded-t-3xl shadow-2xl flex items-center justify-center">
-          <h1 className="text-white font-semibold">Welcome Back!</h1>
+          <img src={banner} alt="" className='h-full rounded-t-2xl'/>
         </div>
 
         <div className="relative bottom-10 right-6 z-0 flex gap-2">
@@ -81,8 +81,8 @@ function Homepage() {
     </button>
 
 </div>
-            <div className="mt-4 text-white text-center text-sm">
-              {activeTab === "Shop" && <p>Avatar</p>}
+          <div className="mt-4 text-white text-center text-sm">
+              {activeTab === "Shop" && <Avatar/>}
               {activeTab === "Ranks" && <p> Master, Legend, Epic, Mythic</p>}
               {activeTab === "Statistics" && <p> Up and down </p>}
             </div>
