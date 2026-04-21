@@ -5,16 +5,7 @@ import logout from '../assets/logout.png'
 import { useContext } from 'react';
 import { sideContext } from './createContext';
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
-import Homepage from '../Homepage'
-import Settings from '../Settings'
-import AccountMenu from '../AccountMenu'
-import LoginPage from '../LoginPage'
-import TriviaPage from '../TriviaPage'
-import QuestionSelect from '../QuestionSelect'
-import QuestionTF from '../QuestionTF'
-import QuestionMulti from '../QuestionMulti'
 
-import RegisterPage from '../RegisterPage'
 
 
 function SideBar(){
@@ -27,7 +18,7 @@ function SideBar(){
                     <div className="p-4 flex flex-col items-center w-full h-40 shadow-lg">
                         <div className="w-full flex justify-end">
                             <button 
-                                onClick={()=> setSideButtonState(false)} 
+                                onClick={()=> setSideButtonState(!sideButtonState)} 
                                 className="flex items-center justify-center h-7 w-7 border-2 rounded-full"
                             >
                                 X
