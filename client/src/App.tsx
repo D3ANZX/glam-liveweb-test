@@ -10,7 +10,7 @@ import Settings from "./Settings.tsx";
 function App(){
   return(
     <div className='mb-40'>
-      <NavBar/>
+
       <BottomNav/>
       
     </div>
