@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react';
 import "./components/TFstyles.css";
 import mj from "./assets/profilePics/mj.png";
-function TrueFalse() {
+function QuestionSelect() {
 return (
     <div className= "backG"
     style={{
@@ -14,11 +14,11 @@ return (
       <div className= "TextMain"> CHOOSE YOUR QUESTION TYPE</div>
       <div className="card">
         <div className="buttonRow">
-          <button className="quizButton">TRUE OR FALSE</button>
-          <button className="quizButtonAlt">MULTIPLE CHOICE</button>
+          <button className="quizButton"><Link to='/TrueOrFalse'>TRUE OR FALSE</Link></button>
+          <button className="quizButtonAlt"><Link to='/MultipleQues'>MULTIPLE CHOICE</Link></button>
         </div>
       </div>  
     </div>
   );
 }
-export default TrueFalse;
+export default QuestionSelect;
