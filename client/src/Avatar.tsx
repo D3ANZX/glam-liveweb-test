@@ -1,25 +1,30 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
-import hair1 from "./assets/longhair.png";
+import hair1 from "./assets/gingerhair.png";
 import hair2 from "./assets/Curlyhair.png";
 import hair3 from "./assets/cheerleaderhair.png";
 import hair4 from "./assets/ponytail.png";
 import hair5 from "./assets/boyhair1.png";
 import hair6 from "./assets/90shair.png";
-import hair7 from "./assets/blackhead.png";
+import hair7 from "./assets/rockhair.png";
 import hair8 from "./assets/simpleboyhair.png";
-
+import hair9 from "./assets/curlybhair.png";
+import hair10 from "./assets/softhair.png";
 
 import eyes1 from "./assets/Cateye.png";
 import eyes2 from "./assets/nonchalanteyes.png";
-
+import eyes3 from "./assets/sparklyeyes.png";
+import eyes4 from "./assets/bigeyes.png";
+import eyes5 from "./assets/sleeplesseyes.png";
 
 import lips1 from "./assets/Lips1.png";
 import lips2 from "./assets/confusedlips.png";
 import lips3 from "./assets/redlips.png";
 import lips4 from "./assets/smilinglips.png";
+import lips5 from "./assets/smileysmile.png";
+import lips6 from "./assets/tongueout.png";
 ;
-
 
 import head1 from "./assets/whitehead.png";
 import head2 from "./assets/neutralhead.png";
@@ -46,20 +51,26 @@ function Avatar() {
       { img: hair5, price: 0 },
       { img: hair6, price: 0 },
       { img: hair7, price: 0 },
-      { img: hair8, price: 0 }
+      { img: hair8, price: 0 },
+      { img: hair9, price: 0 },
+      { img: hair10, price: 0 }
 
     ],
     eyes: [
       { img: eyes1, price: 0 },
-      { img: eyes2, price: 30 }
+      { img: eyes2, price: 30 },
+      { img: eyes3, price: 30 },
+      { img: eyes4, price: 30 },
+      { img: eyes5, price: 30 },
 
     ],
     lips: [
       { img: lips1, price: 0 },
       { img: lips2, price: 20 },
       { img: lips3, price: 30 },
-      { img: lips4, price: 30 }
-
+      { img: lips4, price: 30 },
+      { img: lips5, price: 30 },
+      { img: lips6, price: 30 }
 
     ],
     head: [
@@ -74,7 +85,7 @@ function Avatar() {
     <div className="text-white">
 
       {/*AVATAR PREVIEW*/}
-      <div className="relative w-9 h-13 mx-auto mb-3 scale-200">
+      <div className="relative -mt-10 w-32 h-40 mx-auto -mb-6">
         <img src={avatar.head} className="absolute w-full h-full z-0" />
         <img src={avatar.hair} className="absolute w-full h-full z-1"  />
         <img src={avatar.eyes} className="absolute w-full h-full z-2"  />
@@ -83,7 +94,7 @@ function Avatar() {
       </div>
 
       {/*CATEGORY BUTTONS */}
-      <div className="flex justify-around mb-3">
+      <div className="flex justify-around mb-3 relative z-50">
         {["hair", "eyes", "lips", "head"].map((part) => (
           <button
             key={part}
@@ -94,13 +105,13 @@ function Avatar() {
                 : "bg-gray-700"
             }`}
           >
-            {part}
+            {part.charAt(0).toUpperCase() + part.slice(1)}
           </button>
         ))}
       </div>
 
       {/*SHOP ITEMS*/}
-      <div className="grid grid-cols-6 gap-2">
+      <div className="grid grid-cols-3 gap-2">
         {shopItems[selectedPart].map((item: any, index: number) => (
           <div
             key={index}

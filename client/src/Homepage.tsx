@@ -4,6 +4,8 @@ import { useState } from 'react';
 import MJAd from './components/MJAd';
 import Avatar from './Avatar';
 import banner from './assets/banner.png';
+import Ranking from "./Ranking";
+
 function Homepage() {
 
   const [isTouched, setIsTouched] = useState(false);
@@ -12,7 +14,7 @@ function Homepage() {
     <div className="">
     <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
 
-      <div className=" mt-23 h-190 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
+      <div className=" mt-23 h-270 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
 
         <div id='welcome-header' className="top-0 h-30 w-full bg-red-700 rounded-t-3xl shadow-2xl flex items-center justify-center">
           <img src={banner} alt="" className='h-full rounded-t-2xl'/>
@@ -60,7 +62,7 @@ function Homepage() {
 
     <button
       onClick={() => setActiveTab("Ranks")}
-      className={`flex-1 pb-2 text-center font-semibold ${
+      className={`flex-1 pb-2 z-50 text-center font-semibold ${
         activeTab === "Ranks"
           ? "border-b-4 border-yellow-400 text-yellow-400"
           : "text-white"
@@ -81,9 +83,9 @@ function Homepage() {
     </button>
 
 </div>
-          <div className="mt-4 text-white text-center text-sm">
+          <div className="mt-4 text-white text-center text-sm flex justify-center">
               {activeTab === "Shop" && <Avatar/>}
-              {activeTab === "Ranks" && <p> Master, Legend, Epic, Mythic</p>}
+              {activeTab === "Ranks" && <Ranking/>}
               {activeTab === "Statistics" && <p> Up and down </p>}
             </div>
           </div>
