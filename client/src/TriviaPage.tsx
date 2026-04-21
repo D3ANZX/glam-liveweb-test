@@ -10,7 +10,7 @@ import RihannaAd from "./components/RihannaAd";
 function TriviaPage(){
     
     return(
-        <div className="mt-15 h-screen w-screen">
+        <div className="h-screen w-screen">
             <MJAd/>
             <BillieAd/>
             <BrunoMarsAd/>

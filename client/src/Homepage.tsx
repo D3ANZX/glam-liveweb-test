@@ -5,13 +5,13 @@ import MJAd from './components/MJAd';
 import NavBar from './components/NavBar';
 import Avatar from './Avatar';
 import banner from './assets/banner.png';
+import SideBar from './components/SideBar';
 function Homepage() {
 
   const [isTouched, setIsTouched] = useState(false);
   const [activeTab, setActiveTab] = useState("Shop");
   return (
     <div className=" bg-gradient-to-br from-gray-900 to-purple-900">
-      <NavBar/>
       <div id='homepage-parent' className="flex justify-center mt-0.3 z-0 w-screen">
 
         <div className=" mt-23 h-190 w-80 bg-purple-900 rounded-3xl p-3 shadow-2xl flex flex-col items-center">
@@ -95,6 +95,7 @@ function Homepage() {
           </div>
         </div>
         <MJAd/>
+
     </div>
    );
 }

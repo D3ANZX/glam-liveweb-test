@@ -17,7 +17,7 @@ import QuestionMulti from '../QuestionMulti'
 import RegisterPage from '../RegisterPage'
 function BottomNav(){
     return(
-        <BrowserRouter>
+
         <div className="w-screen flex justify-center">
             <div className="mb-5 w-50 h-14 fixed bottom-0 border-5 border-orange-900 bg-red-900 rounded-full flex justify-around items-center z-10">
                 <div className="w-65 flex justify-center gap-4">
@@ -27,18 +27,7 @@ function BottomNav(){
                 </div>
             </div>
         </div>
-            <Routes>
-                <Route path="/" element={<Homepage/>}/>
-                <Route path="/settings" element={<Settings/>}/>
-                <Route path="/account" element={<AccountMenu/>}/>
-                <Route path='/login' element={<LoginPage/>}/>
-                <Route path='/trivia' element={<TriviaPage/>}/>
-                <Route path='/quiz' element={<QuestionSelect/>}/>
-                <Route path='/TrueOrFalse' element={<QuestionTF/>}/>
-                <Route path='/MultipleQues' element={<QuestionMulti/>}/>
-            </Routes>
-
-        </BrowserRouter>
+        
     );
 }
 
