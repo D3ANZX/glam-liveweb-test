@@ -10,7 +10,10 @@ import Settings from '../Settings'
 import AccountMenu from '../AccountMenu'
 import LoginPage from '../LoginPage'
 import TriviaPage from '../TriviaPage'
-import TrueFalse from '../TrueFalse'
+import QuestionSelect from '../QuestionSelect'
+import QuestionTF from '../QuestionTF'
+import QuestionMulti from '../QuestionMulti'
+
 import RegisterPage from '../RegisterPage'
 function BottomNav(){
     return(
@@ -30,7 +33,9 @@ function BottomNav(){
                 <Route path="/account" element={<AccountMenu/>}/>
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/trivia' element={<TriviaPage/>}/>
-                <Route path='/quiz' element={<TrueFalse/>}/>
+                <Route path='/quiz' element={<QuestionSelect/>}/>
+                <Route path='/TrueOrFalse' element={<QuestionTF/>}/>
+                <Route path='/MultipleQues' element={<QuestionMulti/>}/>
             </Routes>
 
         </BrowserRouter>
