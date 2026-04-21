@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+
+#nav-icon{
+    filter: invert(1);
+}
