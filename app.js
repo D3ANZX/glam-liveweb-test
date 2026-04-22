@@ -2,7 +2,8 @@ require('dotenv').config()
 const helmet = require('helmet')
 const cors = require('cors')
 const express = require('express')
-const OPENTDB_API = 'https://opentdb.com/api.php?amount=5&difficulty=easy&type=boolean'
+const OPENTDB_API_TF = 'https://opentdb.com/api.php?amount=5&difficulty=easy&type=boolean'
+const OPENTDB_API_MULTI = 'https://opentdb.com/api.php?amount=10&category=26&type=multiple'
 const app = express()
 const PORT = process.env.PORT || 5000
 
@@ -13,13 +14,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-app.get('/quiz-items', async (req, res) => {
-  const MAX_RETRIES = 10;
+app.get('/quiz-items-tf', async (req, res) => {
+  const MAX_RETRIES = 5;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      console.log("Quiz Data Success");
-      const response = await fetch(OPENTDB_API);
+      const response = await fetch(OPENTDB_API_TF);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
@@ -37,13 +37,14 @@ app.get('/quiz-items', async (req, res) => {
         success: true,
         questions: data.results
       });
-
+      
     } catch (err) {
       console.log(`Attempt ${attempt} failed:`, err.message);
 
       // small delay
       await new Promise(r => setTimeout(r, 300 * attempt));
     }
+    break;
   }
 
   res.status(500).json({
@@ -52,9 +53,49 @@ app.get('/quiz-items', async (req, res) => {
   });
 });
 
+app.get('/quiz-items-multi', async (req, res) => {
+  const MAX_RETRIES = 5;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const response = await fetch(OPENTDB_API_MULTI);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // validate structure BEFORE sending to React
+      if (!data || !Array.isArray(data.results)) {
+        throw new Error('Invalid API structure');
+      }
+      return res.json({
+        success: true,
+        questions: data.results
+      });
+      
+    } catch (err) {
+      console.log(`Attempt ${attempt} failed:`, err.message);
+
+      // small delay
+      await new Promise(r => setTimeout(r, 300 * attempt));
+    }
+    break;
+  }
+
+  res.status(500).json({
+    success: false,
+    error: 'Failed to load quiz data'
+  });
+});
+
+
 app.get('/', (req, res) => {
   res.send("Test baby")
 })
+
+
 
 // 404 handler
 app.use((req, res, next) => {

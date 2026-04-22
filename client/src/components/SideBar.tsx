@@ -12,6 +12,7 @@ function SideBar(){
     const { sideButtonState, setSideButtonState } = useContext(sideContext);
 
     return(
+        <div className="w-screen flex justify-center ml-[-50px]">
             <div className="fixed top-0 z-10 p-4">
                 <div className="h-100 w-50 bg-white rounded-[30px]">
                     
@@ -64,7 +65,7 @@ function SideBar(){
                     </div>
                 </div>
             </div>
-
+        </div>
   
     );
 }

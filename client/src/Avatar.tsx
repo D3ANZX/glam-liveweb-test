@@ -105,7 +105,7 @@ function Avatar() {
       </div>
 
       {/*CATEGORY BUTTONS */}
-      <div className="flex justify-around mb-3 relative z-20">
+      <div className="flex justify-around mb-3 relative z-2">
         {["hair", "eyes", "lips", "head"].map((part) => (
           <button
             key={part}
