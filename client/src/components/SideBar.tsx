@@ -13,7 +13,7 @@ function SideBar(){
 
     return(
         <div className="w-screen flex justify-center ml-[-50px]">
-            <div className="fixed top-0 z-10 p-4">
+            <div className="fixed top-0 z-21 p-4">
                 <div className="h-100 w-50 bg-white rounded-[30px]">
                     
                     <div className="p-4 flex flex-col items-center w-full h-40 shadow-lg">

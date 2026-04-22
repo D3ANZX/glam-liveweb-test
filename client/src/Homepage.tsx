@@ -14,6 +14,19 @@ function Homepage() {
   const [isTouched, setIsTouched] = useState(false);
   const [activeTab, setActiveTab] = useState("Shop");
   const [coins, setCoins] = useState(0);
+  const [avatar, setAvatar] = useState(null);
+
+   useEffect(() => {
+    const loadAvatar = () => {
+      const saved = localStorage.getItem("avatar");
+      if (saved) setAvatar(JSON.parse(saved));
+    };
+
+    loadAvatar();
+    window.addEventListener("avatarUpdated", loadAvatar);
+
+    return () => window.removeEventListener("avatarUpdated", loadAvatar);
+  }, []);
   
   useEffect(() => {
     const savedCoins = localStorage.getItem("coins");
@@ -51,9 +64,16 @@ function Homepage() {
 
           <div className="relative bottom-10 right-6 z-0 flex gap-2">
             <div id='profileContainer'>
-                <div className="w-30 h-30 bg-white rounded-full border-4 border-purple-900 shadow-xl flex items-center justify-center">
-                <img src={mj} alt="" className='h-26 w-26 rounded-full ' />
-                </div>
+                <div className="w-30 h-30 bg-white rounded-full border-4 border-purple-900 shadow-xl flex items-center justify-center overflow-hidden">
+{avatar && (
+  <div className="relative mt-7 w-29 h-33 scale-161 -translate-x-0">
+    <img src={avatar.head} className="absolute w-full h-full rounded-full object-contain" />
+    <img src={avatar.hair} className="absolute w-full h-full rounded-full object-contain" />
+    <img src={avatar.eyes} className="absolute w-full h-full rounded-full object-contain" />
+    <img src={avatar.lips} className="absolute w-full h-full rounded-full object-contain" />
+  </div>
+)}       
+</div>
             </div>
             <div className="">
                 <h1 className='mt-12 text-white font-bold'>Michael Jackson</h1>
@@ -90,7 +110,7 @@ function Homepage() {
 
       <button
         onClick={() => setActiveTab("Ranks")}
-        className={`flex-1 pb-2 text-center font-semibold ${
+        className={`flex-1 pb-2 z-5 text-center font-semibold ${
           activeTab === "Ranks"
             ? "border-b-4 border-yellow-400 text-yellow-400"
             : "text-white"
@@ -124,14 +144,10 @@ function Homepage() {
     </div>
   )}
 
-  {activeTab === "Ranks" && <Ranking />}
+  {activeTab === "Ranks" && <Ranking/>}
   {activeTab === "Statistics" && <p> Up and down </p>}
 </div>
-            </div>
-            
-
-
-              
+            </div> 
           </div>
         </div>
         <MJAd/>

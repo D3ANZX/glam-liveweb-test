@@ -14,7 +14,7 @@ function NavBar(){
             <div className="w-screen flex justify-center items-center top-0 ">
                 <button 
                     onClick={()=> setSideButtonState(!sideButtonState)} 
-                    className="mt-25 fixed w-80 h-15 flex items-center justify-left z-10 rounded-[30px]"
+                    className="mt-25 fixed w-80 h-15 flex items-center justify-left z-21 rounded-[30px]"
                     >
                     <div className="w-14 h-14 flex items-center justify-center bg-yellow-600 rounded-full shadow-2xl">
                         <img src={burger} alt="" className="h-10 w-10" />

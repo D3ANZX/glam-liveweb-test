@@ -43,6 +43,11 @@ function Avatar() {
     lips: lips1,
     head: head1
   });
+   const saveAvatar = (updatedAvatar) => {
+    setAvatar(updatedAvatar);
+    localStorage.setItem("avatar", JSON.stringify(updatedAvatar));
+    window.dispatchEvent(new Event("avatarUpdated"));
+  };
 
   const [coins, setCoins] = useState(0);
 
@@ -178,7 +183,7 @@ function Avatar() {
       </div>
 
       {/*CATEGORY BUTTONS */}
-      <div className="flex justify-around mb-3 relative z-2">
+      <div className="flex justify-around mb-3 relative z-20">
         {["hair", "eyes", "lips", "head"].map((part) => (
           <button
             key={part}
@@ -207,6 +212,7 @@ function Avatar() {
           <div
             key={index}
             onClick={() => {
+
   const isLocked = coins < item.price;
 
   if (isLocked) {
@@ -215,16 +221,20 @@ function Avatar() {
     return;
   }
 
-  setAvatar({
+  // AVATAR UPDATE (CLEAN)
+  const updatedAvatar = {
     ...avatar,
     [selectedPart]: item.img
-  });
+  };
 
-  let newCoins = coins;
+  setAvatar(updatedAvatar);
+  localStorage.setItem("avatar", JSON.stringify(updatedAvatar));
+  window.dispatchEvent(new Event("avatarUpdated"));
 
-  if (item.price > 0) {
-    newCoins = Number(coins) - Number(item.price);
-  }
+  // COINS UPDATE
+  const newCoins = item.price > 0
+    ? coins - item.price
+    : coins;
 
   setCoins(newCoins);
   localStorage.setItem("coins", newCoins.toString());
