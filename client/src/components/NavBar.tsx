@@ -1,5 +1,7 @@
 import './cstyles.css'
+import burger from '../assets/burger.png'
 import SideBar from './SideBar';
+
 import { useState } from 'react';
 import { sideContext } from './createContext';
 
@@ -14,8 +16,8 @@ function NavBar(){
                     onClick={()=> setSideButtonState(!sideButtonState)} 
                     className="mt-25 fixed w-80 h-15 flex items-center justify-left z-10 rounded-[30px]"
                     >
-                <div className="w-30 h-12 flex items-center justify-center bg-yellow-600 rounded-[30px]">
-                    <h1 className='font-extrabold text-3xl text-white' id="logo">GLAM!</h1>
+                    <div className="w-14 h-14 flex items-center justify-center bg-yellow-600 rounded-full shadow-2xl">
+                        <img src={burger} alt="" className="h-10 w-10" />
                     </div>
                 </button>
             </div>
