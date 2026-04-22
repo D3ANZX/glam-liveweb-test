@@ -49,7 +49,7 @@ function Ranking() {
   },
 ];
   return (
-    <div className="flex flex-col gap-3 w-72">
+    <div className="flex flex-col gap-3 w-74">
       {ranks.map((rank, index) => (
         <div key={index} className="bg-gray-800 p-2 rounded-lg">
 

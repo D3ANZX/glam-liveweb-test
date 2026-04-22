@@ -36,6 +36,7 @@ function Avatar() {
   const [notif, setNotif] = useState("");
   const [selectedPart, setSelectedPart] = useState("hair");  
 
+
   const [avatar, setAvatar] = useState({
     hair: hair1,
     eyes: eyes1,
@@ -52,43 +53,115 @@ function Avatar() {
 
   const shopItems: any = {
     hair: [
-      { img: hair1, 
+    { img: hair1, 
         price: 1000,
-        name: "meow meow.",
-        desc: "beiuwefy." },
-      { img: hair2, price: 0 },
-      { img: hair3, price: 0 },
-      { img: hair4, price: 0 },
-      { img: hair5, price: 0 },
-      { img: hair6, price: 0 },
-      { img: hair7, price: 0 },
-      { img: hair8, price: 0 },
-      { img: hair9, price: 0 },
-      { img: hair10, price: 0 }
+        name: "Ginger Hair",
+        desc: "COMMON" },
+    { img: hair2, 
+        price: 0,
+        name: "Curly Plop Hair",
+        desc: "RISING STAR"},
+    { img: hair3,
+      price: 0,
+      name: "Cheerleader Hair",
+      desc: "COMMON" },
+    { img: hair4, 
+        price: 0,
+        name: "High Ponytail Hair",
+        desc: "ICON" },
+    { img: hair5,
+        price: 0,
+        name: "Red Hair",
+        desc: "ICON" },
+      { img: hair6, 
+        price: 0,
+        name: "Spiky Hair",
+        desc: "COMMON" },
+      { img: hair7,
+        price: 0,
+        name: "Slicked Back Hair",
+        desc: "RISING STAR" },
+      { img: hair8,
+        price: 0,
+        name: "Bowl Hair",
+        desc: "COMMON" },
+      { img: hair9,
+        price: 0,
+        name: "Messy Hair",
+        desc: "ICON" },
+      { img: hair10, 
+        price: 0,
+        name: "Soft Girl Hair",
+        desc: "RISING STAR" }
 
     ],
     eyes: [
-      { img: eyes1, price: 0 },
-      { img: eyes2, price: 0 },
-      { img: eyes3, price: 0 },
-      { img: eyes4, price: 0 },
-      { img: eyes5, price: 0 },
+      { img: eyes1, 
+        price: 0,
+        name: "Winged Eyes",
+        desc: "beiuwefy." },
+      { img: eyes2, 
+        price: 0,
+        name: "Dreamy Eyes",
+        desc: "beiuwefy." },
+      { img: eyes3, 
+        price: 0,
+        name: "Doe Eyes",
+        desc: "beiuwefy." },
+      { img: eyes4, 
+        price: 0,
+        name: "Goggly Eyes",
+        desc: "beiuwefy." },
+      { img: eyes5, 
+        price: 0,
+        name: "Exhausted Eyes",
+        desc: "beiuwefy." },
 
     ],
     lips: [
-      { img: lips1, price: 0 },
-      { img: lips2, price: 0 },
-      { img: lips3, price: 0 },
-      { img: lips4, price: 0 },
-      { img: lips5, price: 0 },
-      { img: lips6, price: 0 }
+      { img: lips1, 
+        price: 0,
+        name: "Neutral Smile",
+        desc: "beiuwefy."},
+      { img: lips2, 
+        price: 0,
+        name: "Side Smile",
+        desc: "beiuwefy." },
+      { img: lips3, 
+        price: 0,
+        name: "Red Lips",
+        desc: "beiuwefy." },
+      { img: lips4, 
+        price: 0,
+        name: "Wide Smile",
+        desc: "beiuwefy." },
+      { img: lips5, 
+        price: 0,
+        name: "Cheery Smile",
+        desc: "beiuwefy." },
+      { img: lips6, 
+        price: 0,
+        name: "Tongue Out",
+        desc: "beiuwefy." }
 
     ],
     head: [
-      { img: head1, price: 0 },
-      { img: head2, price: 0 },
-      { img: head3, price: 0 },
-      { img: head4, price: 0 }
+      { img: head1,
+        price: 0,
+        name: "Light Skintone",
+        desc: "beiuwefy." },
+      { img: head2,
+        price: 0,
+        name: "Tan Skintone",
+        desc: "beiuwefy." },
+      { img: head3, 
+        price: 0,
+        name: "Brown Skintone",
+        desc: "beiuwefy." },
+      { img: head4, 
+        price: 0,
+        name: "Black Skintone",
+        desc: "beiuwefy." }
     ]
   };
 
@@ -98,8 +171,8 @@ function Avatar() {
       {/*AVATAR PREVIEW*/}
       <div className="relative -mt-10 w-32 h-40 mx-auto -mb-6">
         <img src={avatar.head} className="absolute w-full h-full z-0" />
-        <img src={avatar.hair} className="absolute w-full h-full z-1"  />
-        <img src={avatar.eyes} className="absolute w-full h-full z-2"  />
+        <img src={avatar.hair} className="absolute w-full h-full z-1" />
+        <img src={avatar.eyes} className="absolute w-full h-full z-2" />
         <img src={avatar.lips} className="absolute w-full h-full z-3"/>
         
       </div>
@@ -123,7 +196,7 @@ function Avatar() {
 
       {/* NOTIFICATION */}
 {notif && (
-<div className="absolute top-20 left-1/2 -translate-x-1/2 w-75 font-bold bg-red-500 text-white text-xs px-4 py-2 rounded-lg shadow-5xl z-50 animate-bounce">
+<div className="absolute top-20 left-1/2 -translate-x-1/2 w-75 font-bold bg-red-500 text-white text-xs px-4 py-2 rounded-lg shadow-5xl z-4 animate-bounce">
   {notif}
   </div>
 )}
@@ -138,11 +211,7 @@ function Avatar() {
 
   if (isLocked) {
     setNotif("NOT ENOUGH COINS!");
-
-    setTimeout(() => {
-      setNotif("");
-    }, 1000);
-
+    setTimeout(() => setNotif(""), 1000);
     return;
   }
 
@@ -151,15 +220,16 @@ function Avatar() {
     [selectedPart]: item.img
   });
 
-  const newCoins = coins - item.price;
+  let newCoins = coins;
+
+  if (item.price > 0) {
+    newCoins = Number(coins) - Number(item.price);
+  }
 
   setCoins(newCoins);
-
   localStorage.setItem("coins", newCoins.toString());
   window.dispatchEvent(new Event("coinsUpdated"));
-  
-}
-            }
+}}
             className="bg-white p-2 rounded cursor-pointer hover:scale-105 transition"
           >
             <img src={item.img} alt="" className="w-full" />
@@ -167,7 +237,7 @@ function Avatar() {
   <p className="text-black text-xs font-bold">{item.name}</p>
   <p className="text-gray-600 text-[10px]">{item.desc}</p>
   <p className="text-yellow-600 text-[11px] font-semibold mt-1">
-    {item.price} coins
+  {item.price === 0 ? "FREE" : `${item.price} coins`}
   </p>
 </div>
           </div>
