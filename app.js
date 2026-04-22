@@ -1,46 +1,77 @@
 require('dotenv').config()
-const express = require('express')
-const morgan = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
-const quizRoutes = require('./routes/quiz')
-const pagesRoutes = require('./routes/pages')
-
+const express = require('express')
+const OPENTDB_API = 'https://opentdb.com/api.php?amount=5&difficulty=easy&type=boolean'
 const app = express()
-const PORT = process.env.PORT || 3000
-
-// Set up EJS as the view engine
-app.set('view engine', 'ejs')
-app.set('views', './views')
+const PORT = process.env.PORT || 5000
 
 // Middleware
-app.use(morgan('combined'))
-app.use(helmet())
 app.use(cors())
+app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
 
-// Routes
-app.use('/api/quiz', quizRoutes)
-app.use('/', pagesRoutes)
 
-// Error handling middleware
+app.get('/quiz-items', async (req, res) => {
+  const MAX_RETRIES = 10;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      console.log("Quiz Data Success");
+      const response = await fetch(OPENTDB_API);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // validate structure BEFORE sending to React
+      if (!data || !Array.isArray(data.results)) {
+        throw new Error('Invalid API structure');
+      }
+
+      return res.json({
+        
+        success: true,
+        questions: data.results
+      });
+
+    } catch (err) {
+      console.log(`Attempt ${attempt} failed:`, err.message);
+
+      // small delay
+      await new Promise(r => setTimeout(r, 300 * attempt));
+    }
+  }
+
+  res.status(500).json({
+    success: false,
+    error: 'Failed to load quiz data'
+  });
+});
+
+app.get('/', (req, res) => {
+  res.send("Test baby")
+})
+
+// 404 handler
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+  const err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
 
+// Error handler
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(err.status || 500).send(`Error ${err.status || 500}: ${err.message}`);
-});
+  console.error(err.stack)
+  res.status(err.status || 500).send(`Error ${err.status || 500}: ${err.message}`)
+})
 
-if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`)
-    })
-}
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
+})
 
 module.exports = app
