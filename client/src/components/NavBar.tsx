@@ -9,7 +9,7 @@ function NavBar(){
     const [sideButtonState, setSideButtonState] = useState(false);
 
     return(  
-        <div>
+
             <sideContext.Provider value={{ sideButtonState, setSideButtonState }}>
             <div className="w-screen flex justify-center items-center top-0 ">
                 <button 
@@ -21,9 +21,10 @@ function NavBar(){
                     </div>
                 </button>
             </div>
+            
             {sideButtonState && <SideBar/>}
             </sideContext.Provider>
-        </div>
+  
 
     );
 }
