@@ -33,7 +33,8 @@ import head4 from "./assets/blackhead.png";
 
 function Avatar() {
 
-  const [selectedPart, setSelectedPart] = useState("hair");
+  const [notif, setNotif] = useState("");
+  const [selectedPart, setSelectedPart] = useState("hair");  
 
   const [avatar, setAvatar] = useState({
     hair: hair1,
@@ -42,9 +43,19 @@ function Avatar() {
     head: head1
   });
 
+  const [coins, setCoins] = useState(0);
+
+  useEffect(() => {
+    const savedCoins = localStorage.getItem("coins");
+    if (savedCoins) setCoins(Number(savedCoins));
+  }, []);
+
   const shopItems: any = {
     hair: [
-      { img: hair1, price: 0 },
+      { img: hair1, 
+        price: 1000,
+        name: "meow meow.",
+        desc: "beiuwefy." },
       { img: hair2, price: 0 },
       { img: hair3, price: 0 },
       { img: hair4, price: 0 },
@@ -58,19 +69,19 @@ function Avatar() {
     ],
     eyes: [
       { img: eyes1, price: 0 },
-      { img: eyes2, price: 30 },
-      { img: eyes3, price: 30 },
-      { img: eyes4, price: 30 },
-      { img: eyes5, price: 30 },
+      { img: eyes2, price: 0 },
+      { img: eyes3, price: 0 },
+      { img: eyes4, price: 0 },
+      { img: eyes5, price: 0 },
 
     ],
     lips: [
       { img: lips1, price: 0 },
-      { img: lips2, price: 20 },
-      { img: lips3, price: 30 },
-      { img: lips4, price: 30 },
-      { img: lips5, price: 30 },
-      { img: lips6, price: 30 }
+      { img: lips2, price: 0 },
+      { img: lips3, price: 0 },
+      { img: lips4, price: 0 },
+      { img: lips5, price: 0 },
+      { img: lips6, price: 0 }
 
     ],
     head: [
@@ -94,7 +105,7 @@ function Avatar() {
       </div>
 
       {/*CATEGORY BUTTONS */}
-      <div className="flex justify-around mb-3 relative z-50">
+      <div className="flex justify-around mb-3 relative z-20">
         {["hair", "eyes", "lips", "head"].map((part) => (
           <button
             key={part}
@@ -110,23 +121,55 @@ function Avatar() {
         ))}
       </div>
 
+      {/* NOTIFICATION */}
+{notif && (
+<div className="absolute top-20 left-1/2 -translate-x-1/2 w-75 font-bold bg-red-500 text-white text-xs px-4 py-2 rounded-lg shadow-5xl z-50 animate-bounce">
+  {notif}
+  </div>
+)}
+
       {/*SHOP ITEMS*/}
       <div className="grid grid-cols-3 gap-2">
         {shopItems[selectedPart].map((item: any, index: number) => (
           <div
             key={index}
-            onClick={() =>
-              setAvatar({
-                ...avatar,
-                [selectedPart]: item.img
-              })
+            onClick={() => {
+  const isLocked = coins < item.price;
+
+  if (isLocked) {
+    setNotif("NOT ENOUGH COINS!");
+
+    setTimeout(() => {
+      setNotif("");
+    }, 1000);
+
+    return;
+  }
+
+  setAvatar({
+    ...avatar,
+    [selectedPart]: item.img
+  });
+
+  const newCoins = coins - item.price;
+
+  setCoins(newCoins);
+
+  localStorage.setItem("coins", newCoins.toString());
+  window.dispatchEvent(new Event("coinsUpdated"));
+  
+}
             }
             className="bg-white p-2 rounded cursor-pointer hover:scale-105 transition"
           >
             <img src={item.img} alt="" className="w-full" />
-            <p className="text-black text-xs text-center mt-1">
-              {item.price} coins
-            </p>
+  <div className="text-center -mt-5">
+  <p className="text-black text-xs font-bold">{item.name}</p>
+  <p className="text-gray-600 text-[10px]">{item.desc}</p>
+  <p className="text-yellow-600 text-[11px] font-semibold mt-1">
+    {item.price} coins
+  </p>
+</div>
           </div>
         ))}
       </div>

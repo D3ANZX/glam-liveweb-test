@@ -14,38 +14,38 @@ function Ranking() {
     {
     name: "ACTOR AWARD",
     badge: actor2f,
-    description: "A beginner award.",
-    details: "must win level ....."
+    description: "The basic entry-level title.",
+    details: "This is the entry-level stage where a performer gets their first professional credit. You have officially entered the industry! Earn this by completing the first 20 quiz and start your Hollywood journey."
   },
     {
     name: "LEAD ACTOR AWARD",
     badge: leadactor2f,
-    description: "meow",
-    details: "must win level ....."
+    description: "Main star of the GLAM!",
+    details: "You are now carrying the show. Achieve this by completing 50 quiz."
   },
    {
     name: "RISING STAR AWARD",
     badge: risingactor2f,
-    description: "meow",
-    details: "must win level ....."
+    description: "A new, popular rising star.",
+    details: "You are the talk of the town! Secure this rank by completing 120 quiz and prove your consistent talent."
   },
    {
     name: "EMMY AWARDS",
     badge: emmyaward2f,
-    description: "meow",
-    details: "must win level ....."
+    description: "Best honor for GLAM quiz.",
+    details: "You have mastered the small screen! Win this by completing 180 quiz correctly. You are now making it in Television category!"
   },
    {
     name: "GRAMMY NOMINEE",
     badge: grammynominee3f,
-    description: "meow",
-    details: "must win level ....."
+    description: "Honorable mention. ",
+    details: "You are among the elite. Earn your nomination by breaking the 200 quiz!"
   },
    {
     name: "GRAMMY AWARD HOLDER",
     badge: grammyholder2f,
-    description: "meow",
-    details: "must win level ....."
+    description: "Elite achievement of GLAM!",
+    details: "You are a true legend! Obtain this by completing the 300 quiz. You are probably a part of Hollywood! Your GLAM Team is proud of you!"
   },
 ];
   return (
@@ -58,7 +58,7 @@ function Ranking() {
             <div className="flex gap-3 items-center">
               <img src={rank.badge} className="w-12 h-15" />
 
-              <div className="flex flex-col text-left leading-tight">
+              <div className="flex flex-col text-left leading-tight w-40">
                 <h2>{rank.name}</h2>
                 <p className="text-xs mt-1">{rank.description}</p>
               </div>
@@ -74,11 +74,13 @@ function Ranking() {
             </button>
           </div>
 
-          {openIndex === index && (
-            <div className="mt-1 text-xs border-t pt-2">
-              {rank.details}
-            </div>
-          )}
+            <div
+  className={`transition-all duration-300 overflow-hidden ${
+    openIndex === index ? "max-h-20 mt-1 pt-2 border-t" : "max-h-0"
+  }`}
+>
+  <p className="text-xs">{rank.details}</p>
+</div>
 
         </div>
       ))}
