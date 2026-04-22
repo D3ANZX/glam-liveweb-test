@@ -9,7 +9,7 @@ function NavBar(){
     return(  
         <div>
             <sideContext.Provider value={{ sideButtonState, setSideButtonState }}>
-            <div className="w-screen flex justify-center items-center top-0">
+            <div className="w-screen flex justify-center items-center top-0 ">
                 <button 
                     onClick={()=> setSideButtonState(!sideButtonState)} 
                     className="mt-25 fixed w-80 h-15 flex items-center justify-left z-10 rounded-[30px]"
