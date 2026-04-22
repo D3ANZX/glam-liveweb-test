@@ -47,7 +47,9 @@ function QuestionMulti() {
     return <h2>No questions found</h2>;
   }
 
+
   return (
+
     <div className="mt-10 h-max w-screen flex flex-col justify-center bg-gradient-to-br from-gray-900 to-purple-900">
       {questions.map((q) => (
         <Quesbody2
@@ -60,5 +62,6 @@ function QuestionMulti() {
     </div>
   );
 }
+
 
 export default QuestionMulti;
